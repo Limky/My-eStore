@@ -140,6 +140,11 @@
 			<artifactId>tiles-extras</artifactId>
 			<version>3.0.5</version>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.0.2.Final</version>
+		</dependency>
 	</dependencies>
     <build>
         <plugins>
