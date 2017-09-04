@@ -40,6 +40,7 @@ public class ProductDao {
 				product.setManufacturer(rs.getString("manufacturer"));
 				product.setUnitInStock(rs.getInt("unitInStock"));
 				product.setDescription(rs.getString("description"));
+				product.setImageFilename(rs.getString("imageFilename"));
 
 				return product;
 
@@ -55,12 +56,13 @@ public class ProductDao {
 		String manufacturer = product.getManufacturer();
 		int unitInStock = product.getUnitInStock();
 		String description = product.getDescription();
+		String imageFilename = product.getImageFilename();
 
-		String sqlStatement = "insert into product (name, category, price, manufacturer, unitInStock, description) "
-				+ "values (?,?,?,?,?,?)";
+		String sqlStatement = "insert into product (name, category, price, manufacturer, unitInStock, description, imageFilename) "
+				+ "values (?,?,?,?,?,?,?)";
 
 		return (jdbcTemplateObject.update(sqlStatement,
-				new Object[] { name, category, price, manufacturer, unitInStock, description }) == 1);
+				new Object[] { name, category, price, manufacturer, unitInStock, description, imageFilename }) == 1);
 
 	}
 
@@ -88,6 +90,7 @@ public class ProductDao {
 				product.setManufacturer(rs.getString("manufacturer"));
 				product.setUnitInStock(rs.getInt("unitInStock"));
 				product.setDescription(rs.getString("description"));
+				product.setImageFilename(rs.getString("imageFilename"));
 
 				return product;
 
@@ -104,12 +107,13 @@ public class ProductDao {
 		String manufacturer = product.getManufacturer();
 		int unitInStock = product.getUnitInStock();
 		String description = product.getDescription();
+		String imageFilename = product.getImageFilename();
 
-		String sqlStatement = "update product set name =?, category =?, price=?, manufacturer=?, unitInStock=?, description=?"
+		String sqlStatement = "update product set name =?, category =?, price=?, manufacturer=?, unitInStock=?, description=?, imageFilename=?"
 				+ "where id =? ";
 
 		return (jdbcTemplateObject.update(sqlStatement,
-				new Object[] { name, category, price, manufacturer, unitInStock, description, id }) == 1);
+				new Object[] { name, category, price, manufacturer, unitInStock, description, imageFilename, id }) == 1);
 
 	}
 }

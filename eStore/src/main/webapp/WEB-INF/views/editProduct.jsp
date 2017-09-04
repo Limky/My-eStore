@@ -9,7 +9,7 @@
       
       <!-- addProduct.jsp 파일의 submit버튼을 눌렀을 때, post방식으로 AdminController.editProduct()메서드 호출  -->
       <sf:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct"
-         method="post" modelAttribute="product">
+         method="post" modelAttribute="product" enctype="multipart/form-data">
          
          <sf:hidden path="id"/>
          
@@ -45,6 +45,12 @@
             <sf:errors path="manufacturer" cssStyle="color:#ff0000"/>
          </div>
         
+        
+         <div class="form-group">
+            <label for="productImage">Upload Picture:</label>
+            <sf:input path="productImage" id="productImage" class="form-control" type="file" />
+         </div>
+         
          <br>
          
          <!-- Post 방식의 addProduct Method 이용 -->

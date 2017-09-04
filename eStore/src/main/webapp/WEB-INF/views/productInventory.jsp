@@ -11,6 +11,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr class="bg-success">
+					<th>Photo Thumb</th>
 					<th>Product Name</th>
 					<th>Category</th>
 					<th>Price</th>
@@ -18,12 +19,14 @@
 					<th>UnitInStock</th>
 					<th>Description</th>
 					<th></th>
-					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="product" items="${products}">
 					<tr>
+						<td>
+						<img src="<c:url value="/resources/images/uploadfile/${product.imageFilename}"/>" 
+						alt="image" style="width: 80%"/></td>
 						<td>${product.name}</td>
 						<td>${product.category}</td>
 						<td>${product.price}</td>
@@ -34,8 +37,7 @@
 							<a href="<spring:url value="/admin/productInventory/deleteProduct/${product.id}"/>">
 							<img src="<spring:url value="/resources/images/icon/delete_icon.png"/>" height="20px" width="20px"/>
 							</a>
-						</td>
-						<td>
+				
 							<a href="<spring:url value="/admin/productInventory/editProduct/${product.id}"/>">
    				 			<img src="<spring:url value="/resources/images/icon/edit_icon.png"/>" height="20px" width="20px"/>
 							</a>
